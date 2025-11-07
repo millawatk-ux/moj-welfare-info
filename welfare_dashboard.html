@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สวัสดิการ สป.ยธ. และสร.ยธ.
+    </title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* กำหนดให้ใช้ Font Noto Sans Thai สำหรับภาษาไทย */
+        body {
+            font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Light background for contrast */
+        }
+        /* กำหนดสีหลักของกระทรวงยุติธรรม */
+        .moj-primary {
+            background-color: #4a277c; /* Deep Violet/Purple */
+        }
+        .moj-secondary {
+            color: #4a277c;
+        }
+        .moj-accent {
+            background-color: #f3c70f; /* Gold/Yellow Accent */
+        }
+        /* Custom scrollbar for better aesthetics */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgba(74, 39, 124, 0.5);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div id="app" class="p-4 sm:p-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-10 p-6 moj-primary text-white rounded-xl shadow-lg">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                ศูนย์รวมสวัสดิการเจ้าหน้าที่
+            </h1>
+            <p class="text-lg sm:text-xl mt-2 font-light">
+                สำนักงานปลัดกระทรวงยุติธรรม และสำนักงานรัฐมนตรี
+            </p>
+            <p class="mt-1 text-sm opacity-80">
+                (ข้าราชการ, ลูกจ้างประจำ, พนักงานราชการ, ลูกจ้างชั่วคราว, จ้างเหมาบริการ)
+            </p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="max-w-7xl mx-auto">
+            
+            <!-- Welfare Categories Grid -->
+            <section class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-10">
+                <!-- Data will be rendered here by JS -->
+            </section>
+
+            <!-- Detail Display Area -->
+            <section id="detail-panel" class="hidden bg-white p-6 sm:p-8 rounded-xl shadow-2xl border-t-4 border-moj-primary mb-10 custom-scrollbar max-h-[70vh] overflow-y-auto">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 id="detail-title" class="text-2xl sm:text-3xl font-bold moj-secondary"></h2>
+                    <button onclick="closeDetails()" class="text-gray-500 hover:text-gray-800 transition duration-150">
+                        <!-- Lucide Close Icon (using SVG inline for single-file mandate) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
+                </div>
+                
+                <div id="detail-content" class="text-gray-700 space-y-4">
+                    <!-- Dynamic content will be injected here -->
+                </div>
+            </section>
+
+            <!-- 120-Day Rule / Action Section (Highlighted) -->
+            <section class="moj-accent p-6 sm:p-8 rounded-xl shadow-lg text-gray-800">
+                <h2 class="text-2xl sm:text-3xl font-extrabold mb-3 text-[#4a277c] flex items-center">
+                    <span class="mr-2 text-3xl">🛑</span> ขั้นตอนและกฎเหล็กการยื่นคำขอ
+                </h2>
+                <div class="bg-white p-4 rounded-lg shadow-inner">
+                    <p class="text-xl font-bold mb-2">
+                        ⏰ ระยะเวลาการยื่นคำขอ: ภายใน 120 วัน
+                    </p>
+                    <p class="text-lg">
+                        เจ้าหน้าที่ผู้ประสงค์ขอรับการสงเคราะห์ หรือผู้บังคับบัญชา **ต้องยื่นคำขอต่อประธานกรรมการภายใน ๑๒๐ วัน** นับตั้งแต่วันที่มีเหตุอันควรให้รับการสงเคราะห์
+                    </p>
+                    <p class="text-lg font-bold mt-2 text-red-600">
+                        หากพ้นกำหนดนี้แล้ว ถือว่าสละสิทธิ์ในการขอรับการสงเคราะห์
+                    </p>
+                </div>
+                
+                <!-- Contact Information Added Here -->
+                <div class="mt-6 pt-4 border-t border-gray-400">
+                    <h3 class="text-xl font-extrabold mb-2 text-[#4a277c] flex items-center">
+                        <!-- Phone Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a277c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.75-2.92 19.5 19.5 0 0 1-2.92-3.75A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72 17.5 17.5 0 0 0 .7 4.29 1 1 0 0 1-.29.82l-1.65 1.65a1 1 0 0 0 .1 1.49 17 17 0 0 0 7.07 7.07 1 1 0 0 0 1.49.1l1.65-1.65a1 1 0 0 1 .82-.29 17.5 17.5 0 0 0 4.29.7A2 2 0 0 1 22 16.92z"/></svg>
+                        สอบถามเพิ่มเติม / ติดต่อยื่นคำขอ
+                    </h3>
+                    <p class="text-base font-medium">
+                        กลุ่มงานสวัสดิการและเจ้าหน้าที่สัมพันธ์ กองบริหารทรัพยากรบุคคล สำนักงานปลัดกระทรวงยุติธรรม
+                    </p>
+                    <p class="text-xl font-extrabold text-red-700 mt-1">
+                        โทรศัพท์: 0 2141 5173
+                    </p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        const mojPrimary = '#4a277c';
+        
+        // --- DATA based on line_oa_welfare_summary.md ---
+        const welfareData = [
+            {
+                id: 1,
+                icon: '🕯️',
+                title: 'กรณีเจ้าหน้าที่ถึงแก่กรรม',
+                summary: 'เงินช่วยเหลือพื้นฐาน 10,000 บาท (รวมเจ้าภาพ/พวงหรีด) และได้รับเพิ่ม 10,000 บาท หากเสียชีวิตจากการปฏิบัติหน้าที่ราชการ',
+                details: [
+                    { type: 'heading', text: 'วงเงินช่วยเหลือหลัก' },
+                    { type: 'table', data: [
+                        ['รายละเอียด', 'วงเงินช่วยเหลือ'],
+                        ['เงินช่วยเหลือพื้นฐาน + เจ้าภาพจัดพิธี + พวงหรีด', '10,000 บาท/ราย'],
+                        ['กรณีเสียชีวิตจากการปฏิบัติหน้าที่ราชการ', 'เพิ่มอีก 10,000 บาท'],
+                        ['รวมสูงสุด', '20,000 บาท (ไม่รวมค่าพวงหรีด)'],
+                    ], isBold: true },
+                    { type: 'paragraph', text: 'สำนักงานฯ จะมอบหมายให้ผู้บังคับบัญชาดำเนินการจัดหาพวงหรีด/สัญลักษณ์เคารพตามศาสนาในนาม สป.ยธ.' }
+                ]
+            },
+            {
+                id: 2,
+                icon: '🙏',
+                title: 'กรณีคนในครอบครัวถึงแก่กรรม',
+                summary: 'ช่วยเหลือ 5,000 บาท/ราย สำหรับคู่สมรส, บิดามารดา, หรือบุตรโดยชอบด้วยกฎหมาย',
+                details: [
+                    { type: 'heading', text: 'สิทธิและวงเงินช่วยเหลือ' },
+                    { type: 'table', data: [
+                        ['ครอบครัว', 'วงเงินช่วยเหลือ'],
+                        ['คู่สมรส, บิดามารดา, หรือบุตรโดยชอบด้วยกฎหมาย', '5,000 บาท/ราย'],
+                    ] },
+                    { type: 'paragraph', text: 'สิทธิที่ได้รับ: เงินสวัสดิการ + เจ้าภาพจัดพิธี + พวงหรีดในนาม สป.ยธ.' }
+                ]
+            },
+            {
+                id: 3,
+                icon: '🏥',
+                title: 'กรณีเจ็บป่วย (คนไข้ใน)',
+                summary: 'ช่วยเหลือ 3,000 บาท/ครั้ง หากพักรักษาตัวในสถานพยาบาลตั้งแต่ 3 คืน ขึ้นไป (ปีละไม่เกิน 1 ครั้ง)',
+                details: [
+                    { type: 'heading', text: 'หลักเกณฑ์และเงื่อนไข' },
+                    { type: 'table', data: [
+                        ['หลักเกณฑ์', 'วงเงินช่วยเหลือ'],
+                        ['เข้ารับการรักษาเป็นคนไข้ในตั้งแต่ 3 คืน ขึ้นไป', '3,000 บาท/ครั้ง'],
+                    ] },
+                    { type: 'list', items: ['ต้องพักรักษาตัวตั้งแต่ 3 คืน ขึ้นไป', 'อัตราการใช้สิทธิ์: ปีละไม่เกิน 1 ครั้ง'] }
+                ]
+            },
+            {
+                id: 4,
+                icon: '🌧️',
+                title: 'กรณีประสบภัย/ทรัพย์สินเสียหาย',
+                summary: 'ช่วยเหลือตามส่วนแห่งความเสียหาย ไม่เกิน 5,000 บาท/ราย จากอัคคีภัย อุทกภัย วาตภัย หรืออื่น ๆ',
+                details: [
+                    { type: 'heading', text: 'ความช่วยเหลือ' },
+                    { type: 'table', data: [
+                        ['ภัยที่ครอบคลุม', 'วงเงินช่วยเหลือ'],
+                        ['อัคคีภัย, อุทกภัย, วาตภัย หรืออย่างอื่น', 'ไม่เกิน 5,000 บาท/ราย'],
+                    ] },
+                    { type: 'paragraph', text: 'คณะกรรมการฯ พิจารณาอนุมัติช่วยเหลือตามส่วนแห่งความเสียหายและความเดือดร้อน' }
+                ]
+            },
+            {
+                id: 5,
+                icon: '👶',
+                title: 'กรณีมีบุตรเกิดใหม่',
+                summary: 'เงินรับขวัญทายาทใหม่ 1,000 บาท/คน',
+                details: [
+                    { type: 'heading', text: 'เงินรับขวัญ' },
+                    { type: 'table', data: [
+                        ['สิทธิที่ได้รับ', 'วงเงินช่วยเหลือ'],
+                        ['เงินรับขวัญทายาทใหม่', '1,000 บาท/คน'],
+                    ] },
+                    { type: 'paragraph', text: 'หากสามีภรรยาเป็นเจ้าหน้าที่ สป.ยธ./สำนักงานรัฐมนตรี ทั้งคู่ ให้ยื่นใช้สิทธิขอรับเงินสวัสดิการได้ **เพียงคนใดคนหนึ่ง**' }
+                ]
+            },
+            {
+                id: 6,
+                icon: '📄',
+                title: 'กรณีเกษียณอายุราชการ',
+                summary: 'ช่วยเหลือ 2,000 บาท (10 ปี) หรือ 5,000 บาท (25 ปี) หากพ้นจากราชการโดยไม่มีความผิด',
+                details: [
+                    { type: 'heading', text: 'วงเงินช่วยเหลือตามอายุราชการ' },
+                    { type: 'table', data: [
+                        ['อายุราชการติดต่อกัน', 'วงเงินช่วยเหลือ'],
+                        ['ปฏิบัติราชการไม่น้อยกว่า 10 ปี', '2,000 บาท/ราย'],
+                        ['ปฏิบัติราชการไม่น้อยกว่า 25 ปี', '5,000 บาท/ราย'],
+                    ] },
+                    { type: 'paragraph', text: 'เงื่อนไข: พ้นจากราชการโดยไม่มีความผิด' }
+                ]
+            }
+        ];
+
+        // --- UI Rendering Functions ---
+
+        /**
+         * Renders the main welfare cards grid.
+         */
+        function renderCards() {
+            const gridContainer = document.querySelector('section.grid');
+            gridContainer.innerHTML = ''; // Clear existing content
+
+            welfareData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] cursor-pointer border-l-4 border-moj-primary';
+                card.setAttribute('onclick', `showDetails(${item.id})`);
+                
+                // Card Content
+                card.innerHTML = `
+                    <div class="text-4xl mb-3">${item.icon}</div>
+                    <h3 class="text-xl font-bold moj-secondary mb-2">${item.title}</h3>
+                    <p class="text-sm text-gray-600">${item.summary}</p>
+                    <div class="mt-3 text-sm font-semibold text-moj-primary flex items-center">
+                        ดูรายละเอียด
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="${mojPrimary}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        /**
+         * Converts the detail data array into HTML elements.
+         * @param {Array} details - The details array from welfareData.
+         * @returns {string} HTML string.
+         */
+        function renderDetailsContent(details) {
+            let html = '';
+            details.forEach(detail => {
+                if (detail.type === 'heading') {
+                    html += `<h3 class="text-xl font-semibold mt-4 mb-2 text-gray-800">${detail.text}</h3>`;
+                } else if (detail.type === 'paragraph') {
+                    // Simple replacement for **bold** using standard markdown-like approach
+                    const formattedText = detail.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    html += `<p class="text-base leading-relaxed">${formattedText}</p>`;
+                } else if (detail.type === 'table') {
+                    html += `<div class="overflow-x-auto"><table class="min-w-full bg-gray-50 rounded-lg shadow-md"><thead><tr>`;
+                    
+                    // Table Header
+                    detail.data[0].forEach((header, index) => {
+                        html += `<th class="px-4 py-2 text-left text-sm font-medium text-white moj-primary ${index === 0 ? 'rounded-tl-lg' : ''} ${index === detail.data[0].length - 1 ? 'rounded-tr-lg' : ''}">${header}</th>`;
+                    });
+                    html += `</tr></thead><tbody>`;
+                    
+                    // Table Body
+                    detail.data.slice(1).forEach((row, rowIndex) => {
+                        const rowClass = rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-100';
+                        html += `<tr class="${rowClass}">`;
+                        row.forEach((cell, cellIndex) => {
+                            const cellClass = detail.isBold ? 'font-bold' : '';
+                            html += `<td class="px-4 py-3 text-base text-gray-700 ${cellClass}">${cell}</td>`;
+                        });
+                        html += `</tr>`;
+                    });
+
+                    html += `</tbody></table></div>`;
+                } else if (detail.type === 'list') {
+                    html += `<ul class="list-disc list-inside space-y-1 text-base ml-4">`;
+                    detail.items.forEach(item => {
+                        html += `<li>${item}</li>`;
+                    });
+                    html += `</ul>`;
+                }
+            });
+            return html;
+        }
+
+        /**
+         * Shows the detailed view for a selected welfare item.
+         * @param {number} id - The ID of the selected item.
+         */
+        function showDetails(id) {
+            const item = welfareData.find(d => d.id === id);
+            const detailPanel = document.getElementById('detail-panel');
+            const detailTitle = document.getElementById('detail-title');
+            const detailContent = document.getElementById('detail-content');
+            
+            if (item) {
+                detailTitle.textContent = item.icon + ' ' + item.title + ' | รายละเอียดสิทธิ์';
+                detailContent.innerHTML = renderDetailsContent(item.details);
+                detailPanel.classList.remove('hidden');
+                // Scroll to the detail panel smoothly
+                detailPanel.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /**
+         * Hides the detailed view.
+         */
+        function closeDetails() {
+            document.getElementById('detail-panel').classList.add('hidden');
+        }
+
+        // Initialize the app when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', renderCards);
+    </script>
+</body>
+</html>
